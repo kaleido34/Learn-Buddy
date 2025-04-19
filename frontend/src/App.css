@@ -1,4 +1,4 @@
-/* Basic reset and layout */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,269 +7,345 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
+  background-color: #FFFFFF; /* White background */
+  color: #000000; /* Black text */
+  min-height: 100vh;
 }
 
+/* App Layout */
 .app {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.app-header {
-  background-color: #ff6347; /* Vibrant red-orange */
-  padding: 20px;
-  color: white;
+header {
+  background-color: #441752; /* Purple header */
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 
-.app-header h1 {
+header h1 {
   font-size: 2.5rem;
   font-weight: bold;
 }
 
-.nav-bar {
+header nav {
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
-.nav-btn {
-  background: none;
+header .btn {
+  background-color: transparent;
   color: white;
   border: 2px solid white;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.nav-btn:hover {
-  background-color: white;
-  color: #ff6347;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.tab-btn {
-  padding: 12px;
-  background-color: #ff6347; /* Vibrant red-orange */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: background-color 0.3s;
-}
-
-.tab-btn:hover {
-  background-color: #ff4500; /* Slightly darker red-orange */
-}
-
-.content {
-  max-width: 1000px;
-  margin: 0 auto;
-  background-color: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width:100%;
-}
-
-input[type="file"],
-input[type="text"] {
-  width: 100%;
-  padding: 12px;
-  margin: 15px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-.submit-btn {
-  padding: 12px 20px;
-  background-color: #ff6347;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-  background-color: #ff4500;
-}
-
-.summary-section,
-
-.questions-section {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
+  padding: 8px 12px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  background-color: #f0f8ff; /* Light blue background for questions */
-  margin: 8px 0;
-  padding: 12px;
-  border-radius: 5px;
-}
-
-ul li:hover {
-  background-color: #e0f7fa; /* Slightly darker blue */
-}
-
-@media (max-width: 768px) {
-  .nav-bar {
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-
-  .tabs {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .content {
-    width: 90%;
-    padding: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .app-header h1 {
-    font-size: 2rem;
-  }
-
-  .tab-btn, .submit-btn {
-    width: 100%;
-    padding: 12px;
-  }
-
-  .content {
-    width: 100%;
-    padding: 15px;
-  }
-}
-
-/* Universal Button Styles */
-button {
-  padding: 12px 20px;
-  background-color: #ff6347; /* Vibrant red-orange */
-  color: white;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Consistent spacing for icons and text */
-  font-size: 1rem;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 
-/* Hover Effect */
-button:hover {
-  background-color: #ff4500; /* Slightly darker red-orange */
-  transform: scale(1.05); /* Zoom in */
-  box-shadow: 0 4px 8px rgba(255, 69, 0, 0.3); /* Add shadow */
-}
-
-/* Active (Click) Effect */
-button:active {
-  transform: scale(1); /* Reset scale */
-}
-
-/* For Disabled Buttons */
-button:disabled {
-  background-color: #d3d3d3; /* Light gray for disabled state */
-  color: #aaa;
-  cursor: not-allowed;
-  box-shadow: none;
-  transform: none;
-}
-
-/* Styling for Navigation Buttons (if needed) */
-.nav-btn {
-  padding: 10px 15px; /* Slightly smaller padding for nav buttons */
-}
-
-
-.file-upload {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 15px 0;
-}
-
-.file-upload-btn {
-  padding: 12px 20px;
-  background-color: #ff6347;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 1rem;
-  width:100%;
-}
-
-.file-upload-btn:hover {
-  background-color: #ff4500;
-}
-
-.hidden-file-input {
-  display: none;
-}
-
-.file-name {
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #333;
+header .btn:hover {
+  background-color: white;
+  color: #441752;
 }
 
 .language-dropdown {
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 2px solid #FFFFFF;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: #441752;
+  color: white;
+}
+
+main {
+  flex: 1;
+  padding: 40px 20px; /* Increased padding for better spacing */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Increased gap for better spacing */
+}
+
+/* Content Section */
+.content {
+  background-color: #FFFFFF;
+  padding: 40px; /* Increased padding */
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  text-align: center; /* Center-align text */
+}
+
+.content h1 {
+  font-size: 2.5rem; /* Adjusted font size */
+  color: #441752;
+  margin-bottom: 20px; /* Spacing below h1 */
+}
+
+.content p {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 30px; /* Increased spacing below paragraph */
+  line-height: 1.6;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Reduced gap for better spacing */
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-group input[type="text"],
+.input-group select {
+  flex: 1;
+  padding: 12px; /* Slightly increased padding */
+  border: 2px solid #441752;
+  border-radius: 8px;
   font-size: 1rem;
+}
+
+.input-group .icon {
+  font-size: 1.5rem;
+  color: #441752;
+}
+
+.file-upload-btn {
+  background-color: #441752;
+  color: white;
+  padding: 12px 24px; /* Adjusted padding */
+  border-radius: 8px;
   cursor: pointer;
-  width: auto;
+  transition: all 0.3s ease;
 }
 
-.language-dropdown option {
+.file-upload-btn:hover {
+  background-color: #5A1F6B;
+}
+
+.file-name {
+  margin-top: 10px; /* Added margin for file name */
+  font-size: 0.9rem;
+  color: #441752;
+}
+
+.submit-btn {
+  background-color: #441752;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px; /* Adjusted padding */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 20px; /* Added margin for spacing */
+  font-size: 1rem; /* Adjusted font size */
+}
+
+.submit-btn:hover {
+  background-color: #5A1F6B;
+}
+
+/* Summary Section */
+.summary-section {
+  background-color: #F5F5F5;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-bottom: 20px; /* Gap between summary and mindmap sections */
+}
+
+.summary-section h2 {
+  font-size: 2rem;
+  color: #441752;
+  margin-bottom: 15px;
+}
+
+.summary-section p {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+/* Mindmap Section */
+.mindmap-section {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Gap between mindmap and buttons */
+}
+
+.mindmap-section h2 {
+  font-size: 2rem;
+  color: #441752;
+  margin-bottom: 15px; /* Gap between h2 and p */
+}
+
+.mindmap-section p {
+  font-size: 1.2rem;
+  color: #000000;
+}
+
+/* Buttons Container */
+.buttons-container {
+  display: flex;
+  justify-content:space-evenly; /* Equally spaces buttons horizontally */
+  gap: 5px; /* Adds space between buttons */
+  margin-bottom: 20px; /* Gap below buttons */
+}
+
+/* Button Styles */
+.quiz-btn,
+.flashcards-btn,
+.audio-btn {
+  background-color: #441752;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px; /* Reduced padding to reduce button width */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1; /* Ensures buttons take equal width */
+  max-width: 150px; /* Reduced width for each button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+}
+
+.quiz-btn:hover,
+.flashcards-btn:hover,
+.audio-btn:hover {
+  background-color: #5A1F6B;
+}
+
+/* Icon Styles */
+.quiz-btn svg,
+.flashcards-btn svg,
+.audio-btn svg {
+  font-size: 1rem; /* Adjust icon size */
+}
+
+/* Quiz Section */
+.quiz-section {
+  background-color: #F5F5F5;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.quiz-section h2 {
+  font-size: 2rem;
+  color: #441752;
+  margin-bottom: 15px;
+}
+
+.questions-list {
+  list-style-type: none; /* Remove bullet dots */
+  padding: 0; /* Remove default padding */
+}
+
+.question-item {
+  margin-bottom: 20px; /* Gap between questions */
+  padding-bottom: 20px; /* Space for the colored margin */
+  border-bottom: 2px solid #E0E0E0; /* Colored margin between questions */
+}
+
+.question-item:last-child {
+  border-bottom: none; /* Remove border for the last question */
+}
+
+.question-text {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.options-list {
+  list-style-type: none; /* Remove bullet dots */
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Space between options */
+}
+
+.option-button {
+  background-color: #441752;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px; /* Reduced padding for smaller buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  max-width: 150px; /* Reduced button width */
+  text-align: center;
+}
+
+.option-button:hover {
+  background-color: #5A1F6B;
+}
+
+/* Footer */
+footer {
+  background-color: #441752;
+  color: white;
+  text-align: center;
   padding: 10px;
+  font-size: 14px;
 }
 
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it appears above other content */
+}
 
+.loading-spinner {
+  border: 4px solid #F5F5F5; /* Light gray border */
+  border-top: 4px solid #441752; /* Purple border for animation */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite; /* Spin animation */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-screen p {
+  font-size: 1.2rem;
+  color: #441752;
+  margin-top: 10px;
+}

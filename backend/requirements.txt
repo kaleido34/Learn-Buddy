@@ -1,5 +1,7 @@
 streamlit
 flask
+whisper
+flask-cors
 transformers
 torch
 numpy

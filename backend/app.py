@@ -47,8 +47,19 @@ def process_image(file_path):
 
 # Summarization function using Google Gemini
 def summarize_text(content):
-    prompt = """You are a summarizer. Summarize the input text into important points within 250 words.
-    Here is the input text: """
+    prompt = """You are a summarizer.Create a detailed and concise summary of the provided transcript for display on a website. The summary should capture the key points, main ideas, and essential takeaways from the content. Ensure it is well-structured, easy to read, and optimized for web readability. Include the following elements:
+
+Introduction: Briefly introduce the topic or subject of the transcript.
+
+Main Points: Highlight the primary arguments, themes, or sections discussed.
+
+Key Takeaways: Summarize the most important insights, conclusions, or actionable information.
+
+Supporting Details: Include relevant examples, data, or quotes that reinforce the main points.
+
+Conclusion: Provide a brief wrap-up or final thoughts on the content.
+
+Ensure the summary is engaging, accurate, and tailored for a general audience while maintaining the original context and meaning of the transcript. Avoid jargon or overly complex language, and aim for a length of approximately 150–300 words, depending on the depth of the content. The summary has to be displayed on a separate website so remove the extra stars and while changing sections for e.g. intoduction to main idea. Make it start  from a new line. And also avoid words like 'this transcript is' instead start explaining in a more detialed amd refined manner """
     try:
         model = genai.GenerativeModel("gemini-pro")
         response = model.generate_content(prompt + content)
@@ -58,9 +69,48 @@ def summarize_text(content):
 
 # Function to generate questions based on content using Google Gemini
 def generate_questions(content):
-    prompt = """You are a question generator. Based on the provided text, generate multiple-choice questions with four possible answers.
+    prompt = """"Generate a set of multiple-choice questions (MCQs) based on the provided transcript to serve as an interactive learning or engagement tool for website visitors. The questions should be clear, relevant, and designed to test comprehension of the key points, main ideas, and details from the content. Follow these guidelines:
+
+Question Types:
+
+Include a mix of factual, conceptual, and application-based questions.
+
+Ensure questions cover the most important aspects of the transcript.
+
+Structure:
+
+Each question should have one correct answer and three plausible distractors (incorrect answers).
+
+Avoid ambiguous or overly complex wording.
+
+Coverage:
+
+Distribute questions evenly across the transcript to cover all major sections or themes.
+
+Include questions on key takeaways, supporting details, and any critical insights.
+
+Difficulty Level:
+
+Create a balance of easy, moderate, and challenging questions to cater to a wide audience.
+
+Give answwer key at the end.
+
+Output Format:
+
+Present the questions in a clear, numbered list.
+
+Group questions by topic or section if the transcript is lengthy.
+
+Example:
+Q1. What is the main topic discussed in the transcript?
+a) Option 1
+b) Option 2
+c) Option 3 (Correct Answer)
+d) Option 4
+
+Generate at least 6-7 high-quality MCQs that align with the transcript's content and purpose, ensuring they are engaging and educational for website visitors..
     Each question should have the following format:
-    Question: <Question Text>
+    <Question Number>: <Question Text>
     A) <Option A>
     B) <Option B>
     C) <Option C>
